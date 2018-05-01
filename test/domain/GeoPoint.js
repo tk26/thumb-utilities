@@ -1,9 +1,9 @@
-const GeoPoint = require('../../src/domain/GeoPoint.js');
+const GeoPoint = require('../../src/domain/location_services/GeoPoint.js');
 let chai = require('chai');
 let should = chai.should();
 
 describe('GeoPoint', () => {
-  describe('constructor', () => {
+  describe('validateCoordinates', () => {
     it('should throw RangeError when provided no latitude', () => {
       let invalidConstruct = function() {
         let lat;
@@ -46,6 +46,9 @@ describe('GeoPoint', () => {
       };
       chai.expect(invalidConstruct).to.throw(RangeError);
     });
+  });
+
+  describe('constructor', () => {
     it('should create point when provided max longitude and latitude', () => {
       let point = new GeoPoint(180,90);
       point.latitude.should.equal(90);
@@ -56,13 +59,13 @@ describe('GeoPoint', () => {
       point.latitude.should.equal(-90);
       point.longitude.should.equal(-180);
     });
-  });
+  })
 
   describe('calculateSlopeBetweenPoints', () => {
     it('should calculate correct slope when provided 2 valid points', () => {
       const startPoint = new GeoPoint(1,1);
       const endPoint = new GeoPoint(2,2);
-      GeoPoint.calculateSlopeBetweenPoints(startPoint, endPoint).should.equal(45);
+      GeoPoint.calculateSlopeBetweenPoints(startPoint, endPoint).should.equal(44.978182941465036);
     });
   });
 });
