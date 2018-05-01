@@ -11,6 +11,12 @@ const acos = Math.acos;
 const atan2 = Math.atan2;
 
 module.exports = class GeoPoint {
+  /**
+   *
+   * @param longitude {number}
+   * @param latitude {number}
+   * @returns {GeoPoint}
+   */
   constructor(longitude, latitude) {
     GeoPoint.validateCoordinates(longitude,latitude);
     this.longitude = longitude;
@@ -35,6 +41,13 @@ module.exports = class GeoPoint {
     return (rad2deg(θ) + 360) % 360;
   }
 
+  /**
+   *
+   * @param point {GeoPoint}
+   * @param bearing {number}
+   * @param distance {number}
+   * @returns {GeoPoint}
+   */
   static getPointOffset(point, bearing, distance){
     //calculations source - https://www.movable-type.co.uk/scripts/latlong.html
     const radius = 6371e3;
@@ -60,6 +73,12 @@ module.exports = class GeoPoint {
     return new GeoPoint(longitude, latitude);
   }
 
+  /**
+   *
+   * @param longitude {number}
+   * @param latitude {number}
+   * @returns {bool}
+   */
   static validateCoordinates(longitude, latitude){
     if (_.isUndefined(latitude) || _.isUndefined(longitude)) {
       throw new RangeError('Invalid geo point arguments');
@@ -70,5 +89,6 @@ module.exports = class GeoPoint {
     if (longitude < -180 || longitude > 180) {
       throw new RangeError('Invalid longitude value');
     }
+    return true;
   }
 }

@@ -2,10 +2,10 @@
   "name": "thumb-utilities",
   "version": "1.0.0",
   "description": "Package for all shared thumb utilities",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "npm-run-all --parallel security-check lint",
-    "lint": "esw src buildScripts test --color",
+    "lint": "esw src test --color",
     "lint:watch": "npm run lint -- --watch",
     "security-check": "nsp check",
     "test": "cross-env NODE_ENV=test npm run checkcoverage mocha --exit",
