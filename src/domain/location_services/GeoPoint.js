@@ -19,8 +19,8 @@ module.exports = class GeoPoint {
    */
   constructor(longitude, latitude) {
     GeoPoint.validateCoordinates(longitude,latitude);
-    this.longitude = longitude;
-    this.latitude = latitude;
+    this.longitude = Number(longitude);
+    this.latitude = Number(latitude);
   }
 
   /**
