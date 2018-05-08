@@ -68,4 +68,10 @@ describe('GeoPoint', () => {
       GeoPoint.calculateSlopeBetweenPoints(startPoint, endPoint).should.equal(44.978182941465036);
     });
   });
+  describe('ToPointString', () => {
+    it('should return correct string when provided valid point', () => {
+      const startPoint = new GeoPoint(1,2);
+      startPoint.ToPointString().should.equal('POINT(2 1)');
+    });
+  });
 });

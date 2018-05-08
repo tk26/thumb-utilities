@@ -91,4 +91,13 @@ module.exports = class GeoPoint {
     }
     return true;
   }
+
+  /**
+   *
+   * @param boundary {TripBoundary}
+   * @returns {String}
+   */
+  ToPointString(){
+    return 'POINT(' + this.latitude + ' ' + this.longitude + ')';
+  }
 }
