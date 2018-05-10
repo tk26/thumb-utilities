@@ -94,7 +94,6 @@ module.exports = class GeoPoint {
 
   /**
    *
-   * @param boundary {TripBoundary}
    * @returns {String}
    */
   ToPointString(){
