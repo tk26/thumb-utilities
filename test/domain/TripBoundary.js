@@ -89,7 +89,7 @@ describe('TripBoundary', () => {
   });
   describe('ToPolygonString', () => {
     it('should create Polygon string when provided valid TripBoundary', () => {
-      const expectedString = 'POLYGON((1 1, 1 0, 2 0, 2 1, 1 1))';
+      const expectedString = 'POLYGON((1 1, 1 0, 2 1, 2 0, 1 1))';
       const tripBoundary = new TripBoundary(new GeoPoint(1,1), new GeoPoint(0,1), new GeoPoint(0,2), new GeoPoint(1,2));
       const polygon = tripBoundary.ToPolygonString();
       polygon.should.equal(expectedString);

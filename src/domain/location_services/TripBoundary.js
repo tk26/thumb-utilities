@@ -46,8 +46,8 @@ module.exports = class TripBoundary {
     let boundary = 'POLYGON((';
     boundary += this.startOffset1.latitude + ' ' + this.startOffset1.longitude + ', ';
     boundary += this.startOffset2.latitude + ' ' + this.startOffset2.longitude + ', ';
-    boundary += this.endOffset1.latitude + ' ' + this.endOffset1.longitude + ', ';
     boundary += this.endOffset2.latitude + ' ' + this.endOffset2.longitude + ', ';
+    boundary += this.endOffset1.latitude + ' ' + this.endOffset1.longitude + ', ';
     boundary += this.startOffset1.latitude + ' ' + this.startOffset1.longitude + '))';
     return boundary;
   }
