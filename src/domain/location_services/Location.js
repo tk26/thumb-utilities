@@ -3,13 +3,15 @@ const GeoPoint = require('./GeoPoint.js');
 
 module.exports = class Location {
   /**
-   * @param address {Address}
+   * @param address {string}
+   * @param city {string}
    * @param longitude {number}
    * @param latitude {number}
    * @returns {Location}
    */
-  constructor(address, longitude, latitude){
-    this.address = new Address(address.region, address.street, address.city, address.country, address.postalCode, address.isoCountryCode, address.name);
+  constructor(address, city, longitude, latitude){
+    this.address = address;
+    this.city = city;
     this.coordinates = new GeoPoint(longitude, latitude);
   }
 }

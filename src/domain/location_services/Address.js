@@ -7,7 +7,7 @@ module.exports = class Address {
    * @param postalCode {String}
    * @param isoCountryCode {String}
    * @param name {String}
-   * @returns {Location}
+   * @returns {Address}
    */
   constructor(region, street, city, country, postalCode, isoCountryCode, name){
     this.region = region;
