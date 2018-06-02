@@ -17,6 +17,10 @@ module.exports = class Invitation{
     if(!toUserId || toUserId === null){
       throw new TypeError('To UserId is required to create Invitation.');
     }
+
+    if (fromUserId === toUserId) {
+      throw Error('From User and To User must be different.');
+    }
     this.fromUserId = fromUserId;
     this.toUserId = toUserId;
     this.sentOn = sentOn;

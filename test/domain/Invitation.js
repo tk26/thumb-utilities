@@ -23,6 +23,10 @@ describe('Invitation', () => {
       inv = function(){new Invitation({fromUserId: fromUserId, toUserId : null, sentOn : sentOn, invitationId : invitationId, comment : comment})};
       chai.expect(inv).to.throw(TypeError);
     });
+    it('should throw error when fromUserId is the same as toUserId', () => {
+      let inv = function(){new Invitation({fromUserId : fromUserId, toUserId: fromUserId, sentOn : sentOn, invitationId : invitationId, comment : comment})};
+      chai.expect(inv).to.throw(Error);
+    });
     it('should properly set all properties when provided all parameters', () => {
       let inv = new Invitation({fromUserId: fromUserId, toUserId : toUserId, sentOn : sentOn, invitationId : invitationId, comment : comment});
       inv.fromUserId.should.equal(fromUserId);
